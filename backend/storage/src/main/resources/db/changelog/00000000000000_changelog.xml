@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+  <changeSet author="rgordeev (generated)" id="1654808430134-1">
+    <createTable tableName="objects">
+      <column name="object_id" type="UUID">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_objects"/>
+      </column>
+      <column name="created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+      <column name="extension" type="VARCHAR(255)"/>
+      <column name="file_name" type="TEXT"/>
+      <column name="file_type" type="VARCHAR(255)"/>
+      <column name="length" type="BIGINT"/>
+      <column name="mime_type" type="VARCHAR(255)"/>
+      <column name="original_name" type="TEXT"/>
+      <column name="updated" type="TIMESTAMP WITHOUT TIME ZONE"/>
+      <column name="url" type="TEXT"/>
+      <column name="old_file_storage_name" type="VARCHAR(255)"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="rgordeev (generated)" id="1654808430134-2">
+    <addUniqueConstraint columnNames="object_id" constraintName="uc_objects_object_id"
+                         tableName="objects"/>
+  </changeSet>
+  <changeSet author="rgordeev (generated)" id="1654808430134-3">
+    <addUniqueConstraint columnNames="old_file_storage_name"
+                         constraintName="uc_objects_old_file_storage_name" tableName="objects"/>
+  </changeSet>
+  <changeSet author="rgordeev (generated)" id="1654808430134-4">
+    <createTable tableName="thumbnails">
+      <column name="object_id" type="UUID">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_thumbnails"/>
+      </column>
+      <column name="created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+      <column name="file_name" type="TEXT"/>
+      <column name="updated" type="TIMESTAMP WITHOUT TIME ZONE"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="rgordeev (generated)" id="1654808430134-5">
+    <addForeignKeyConstraint baseColumnNames="object_id" baseTableName="thumbnails"
+                             constraintName="fk_thumbnails_object_id" deferrable="false"
+                             initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                             referencedColumnNames="object_id" referencedTableName="objects"
+                             validate="true"/>
+  </changeSet>
+</databaseChangeLog>

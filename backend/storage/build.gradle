@@ -1,0 +1,69 @@
+group = 'ru.apphub.storage'
+
+dependencies {
+
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
+    testCompileOnly "org.projectlombok:lombok"
+    testAnnotationProcessor "org.projectlombok:lombok"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    // Spring Boot Libraries
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.springframework.boot:spring-boot-starter-jdbc"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-security"
+    implementation "de.codecentric:spring-boot-admin-starter-client"
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation "io.minio:minio:${minioSdkVersion}"
+    implementation "com.jlefebure:spring-boot-starter-minio:${springBootStarterMinioVersion}"
+
+    implementation "io.sentry:sentry-spring-boot-starter:${sentryVersion}"
+    implementation "io.sentry:sentry-logback:${sentryVersion}"
+
+    runtimeOnly "org.springframework.boot:spring-boot-properties-migrator"
+    runtimeOnly "org.springframework.boot:spring-boot-devtools"
+
+    implementation "org.liquibase:liquibase-core"
+    implementation group: 'com.mattbertolini', name: 'liquibase-slf4j', version: '4.1.0'
+
+
+    // OpenAPI 2.0
+    implementation "org.springdoc:springdoc-openapi-ui:${springDocVersion}"
+
+    // Connection pooling, postgresql, hibernate libraries
+    implementation "com.zaxxer:HikariCP"
+    implementation "org.postgresql:postgresql"
+    implementation "org.hibernate:hibernate-core"
+    implementation "org.hibernate.validator:hibernate-validator"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+
+    // Jackson
+    implementation "com.fasterxml.jackson.core:jackson-annotations"
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+    implementation "com.fasterxml.jackson.core:jackson-core"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-joda"
+    implementation "com.fasterxml.jackson.module:jackson-module-jaxb-annotations"
+
+    implementation 'org.aspectj:aspectjweaver'
+    implementation 'org.aspectj:aspectjrt'
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'org.slf4j:jcl-over-slf4j'
+    implementation 'ch.qos.logback:logback-classic'
+    implementation 'ch.qos.logback:logback-core'
+
+    implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
+    implementation "commons-io:commons-io:${commonsIoVersion}"
+    implementation "org.zalando:problem-spring-web:0.27.0"
+    implementation "org.apache.tika:tika-core:${tikaVersion}"
+    implementation "com.drewnoakes:metadata-extractor:2.18.0"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "com.h2database:h2"
+}
+

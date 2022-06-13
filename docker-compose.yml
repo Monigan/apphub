@@ -1,0 +1,21 @@
+version: "3.4"
+services:
+  postgres:
+    build:
+      context: backend/database
+      dockerfile: Dockerfile
+    image: apphub/postgres:${TAG}
+
+  pgbouncer:
+    build:
+      context: backend/database
+      dockerfile: pgbouncer.Dockerfile
+    image: apphub/pgbouncer:${TAG}
+
+  storage:
+    build:
+      context: ./backend/storage
+      dockerfile: Dockerfile
+      args:
+        - VERSION=${TAG}
+    image: apphub/storage:${TAG}

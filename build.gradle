@@ -1,0 +1,13 @@
+buildscript { repositories { mavenCentral() } }
+plugins {
+    id "idea"
+}
+
+wrapper {
+    gradleVersion = "7.4.2"
+}
+
+group 'ru.apphub'
+version "${projectVersion}"
+
+defaultTasks "clean", "build"

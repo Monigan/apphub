@@ -1,0 +1,23 @@
+### игнорируем .git и .idea
+.git
+.idea
+
+### добавляем в игнор ВСЕ
+**/*
+
+### исключаем артефакты, требующиеся для создания контейнеров
+!**/entrypoint.sh
+!backend/services/core/build/libs/*
+!backend/services/file-storage/build/libs/*
+!backend/services/report/build/libs/*
+!frontend/webapp/**/*
+!gulpfile.js
+
+### Повторно игнорируем Dockerfile, .git и .idea в сабмодулях
+**/Dockerfile
+**/.git
+**/.idea
+
+### Повторно игнорируем node_modules и .vscode
+frontend/webapp/.vscode/**
+frontend/webapp/node_modules/**
