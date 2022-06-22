@@ -19,7 +19,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     implementation "io.minio:minio:${minioSdkVersion}"
-    implementation "com.jlefebure:spring-boot-starter-minio:${springBootStarterMinioVersion}"
+    implementation fileTree(dir: 'libs', include: '*.jar')
+//    implementation "com.jlefebure:spring-boot-starter-minio:${springBootStarterMinioVersion}"
 
     implementation "io.sentry:sentry-spring-boot-starter:${sentryVersion}"
     implementation "io.sentry:sentry-logback:${sentryVersion}"
