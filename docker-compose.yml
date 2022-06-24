@@ -19,3 +19,11 @@ services:
       args:
         - VERSION=${TAG}
     image: apphub/storage:${TAG}
+
+  core:
+    build:
+      context: ./backend/core
+      dockerfile: Dockerfile
+      args:
+        - VERSION=${TAG}
+    image: apphub/core:${TAG}

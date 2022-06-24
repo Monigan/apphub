@@ -12,6 +12,9 @@ rootProject.name = 'app-hub'
 include "backend"
 project(':backend').projectDir = new File(rootProject.projectDir, "backend")
 
+include "backend:core"
+project(':backend:core').projectDir = new File(rootProject.projectDir, "backend/core")
+
 include "backend:storage"
 project(':backend:storage').projectDir = new File(rootProject.projectDir, "backend/storage")
 

@@ -1,0 +1,17 @@
+<configuration>
+  <property name="APP_CONSOLE_LOG_PATTERN"
+            value="${APP_CONSOLE_LOG_PATTERN:-%boldGreen(%d{yyyy-MM-dd}) | %boldBlue(%d{HH:mm:ss.SSS}) | %highlight(%-5level) | %cyan(%-20.20thread) | %-25.25logger{25} | %-25.25method{25}  | %m%xEx{full}%n}"/>
+  <property name="APP_FILE_LOG_PATTERN"
+            value="${APP_FILE_LOG_PATTERN:-%boldGreen(%d{yyyy-MM-dd}) | %boldBlue(%d{HH:mm:ss.SSS}) | %highlight(%-5level) | %cyan(%-20.20thread) | %-25.25logger{25} | %-25.25method{25}  | %m%xEx{full}%n}"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${APP_CONSOLE_LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+</configuration>

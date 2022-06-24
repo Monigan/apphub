@@ -1,2 +1,3 @@
 "storage" "storage"
+"core" "core"
 "postgres" "postgres"

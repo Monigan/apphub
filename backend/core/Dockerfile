@@ -7,7 +7,7 @@ RUN apk --no-cache add curl tzdata \
     && apk del tzdata
 
 # Application artifact name (should be updated according to application name in corresponding settings.gradle file)
-ARG ARTIFACT=storage
+ARG ARTIFACT=core
 # Application artifact version (should be updated according to version in corresponding build.gradle file)
 ARG VERSION=0.0.1
 # Application artifact type (jar/war)

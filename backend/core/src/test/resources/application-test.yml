@@ -1,0 +1,63 @@
+logging:
+  level:
+    ROOT: DEBUG
+    ru.apphub.core: DEBUG
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:core-test-db
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+    name: core-prod-database
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      maximum-pool-size: 10
+      max-lifetime: 600000
+      driver-class-name: org.h2.Driver
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: false
+    contexts: prod
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+      hibernate.query.plan_parameter_metadata_max_size: 2000
+      hibernate.query.plan_cache_max_size: 20000
+      hibernate.hbm2ddl.auto: create
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.jdbc.time_zone: UTC
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+  tomcat:
+    max-connections: 20000
+    threads:
+      min-spare: 20
+      max: 400
+
+# ===================================================================
+# Application specific properties
+# ===================================================================
+
+# application:
