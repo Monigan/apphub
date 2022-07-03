@@ -28,9 +28,9 @@ content-type: image/jpeg;charset=UTF-8
 
 ## Работа с MINIO
 
-Веб интерфейс MINIO доступен локально по порту `9009`
+Веб интерфейс MINIO доступен локально по порту `9001`
 ```
-http://localhost:9009/minio/
+http://localhost:9001/minio/
 ```
 
 Параметры аутентификации указаны в .env файле
