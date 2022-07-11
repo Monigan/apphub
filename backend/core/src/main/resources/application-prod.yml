@@ -32,14 +32,14 @@ spring:
     contexts: prod
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
       hibernate.show_sql: false
       hibernate.format_sql: false
       hibernate.query.plan_parameter_metadata_max_size: 2000
       hibernate.query.plan_cache_max_size: 20000
-      hibernate.hbm2ddl.auto: create
+      hibernate.hbm2ddl.auto: update
       hibernate.id.new_generator_mappings: true
       hibernate.connection.provider_disables_autocommit: true
       hibernate.cache.use_second_level_cache: false

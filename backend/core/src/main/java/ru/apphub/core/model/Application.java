@@ -24,6 +24,10 @@ public class Application {
     @Column(name = "path_file", columnDefinition = "text", nullable = false)
     private String path_file;
 
+    @Basic
+    @Column(name = "description", columnDefinition = "text", nullable = false)
+    private String description;
+
 
     //TODO Реализовать коллекцию отзывов и скриншотов
 //    @Basic

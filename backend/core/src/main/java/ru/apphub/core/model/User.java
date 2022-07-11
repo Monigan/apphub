@@ -12,32 +12,24 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.usertype.UserType;
+import ru.apphub.core.entity.UserEntity;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "users")
 public class User {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+
   private Long id;
 
-  @Basic
-  @Column(name = "last_name", columnDefinition = "text")
-  private String lastName;
 
-  @Basic
-  @Column(name = "first_name", columnDefinition = "text")
-  private String firstName;
+  private String last_name;
 
-  @Basic
-  @Column(name = "login", columnDefinition = "text", nullable = false)
+  private String first_name;
+
+
   private String login;
 
-  @Basic
-  @Column(name = "password", columnDefinition = "text", nullable = false)
-  private String password;
+
 
   //TODO реализовать пункты ниже(e-mail, phone, коллекции).
 //  @Basic
@@ -57,6 +49,17 @@ public class User {
 //  private Collection<Application> applications;
 
 
+  public User() {
+  }
+
+  public static User toModel(UserEntity entity){
+    User model = new User();
+    model.setId(entity.getId());
+    model.setLogin(entity.getLogin());
+    model.setFirst_name(entity.getFirst_name());
+    model.setLast_name(entity.getLast_name());
+    return model;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {

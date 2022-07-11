@@ -6,4 +6,5 @@ import ru.apphub.core.model.Application;
 
 @Repository
 public interface ApplicationRepo extends JpaRepository<Application, Long> {
+    Application findByName(String name);
 }

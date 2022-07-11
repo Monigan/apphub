@@ -7,7 +7,6 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles(profiles = "test")
 @SpringBootTest
 class CoreApplicationTests {
-
   @Test
   void contextLoads() {
   }
