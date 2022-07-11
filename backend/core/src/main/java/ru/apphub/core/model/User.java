@@ -1,17 +1,7 @@
 package ru.apphub.core.model;
-
-import java.util.Collection;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.usertype.UserType;
 import ru.apphub.core.entity.UserEntity;
 
 @Getter
@@ -21,13 +11,10 @@ public class User {
 
   private Long id;
 
-
   private String last_name;
 
   private String first_name;
 
-
-  private String login;
 
 
 
@@ -55,7 +42,6 @@ public class User {
   public static User toModel(UserEntity entity){
     User model = new User();
     model.setId(entity.getId());
-    model.setLogin(entity.getLogin());
     model.setFirst_name(entity.getFirst_name());
     model.setLast_name(entity.getLast_name());
     return model;

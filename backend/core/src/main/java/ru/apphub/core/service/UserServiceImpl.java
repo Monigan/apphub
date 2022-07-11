@@ -14,7 +14,7 @@ import ru.apphub.core.repository.UserRepository;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-  private UserRepository userRepository;
+  private final UserRepository userRepository;
 
   @Autowired
   public UserServiceImpl(UserRepository userRepository) {
@@ -22,13 +22,13 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public List<UserEntity> findAllUsers() {
-//    return userRepository.findAll().stream().map(u -> User.toModel(u)).toList();
-    return userRepository.findAll().stream().toList();
+  public List<User> findAllUsers() {
+    return userRepository.findAll().stream().map(User::toModel).toList();
+//    return userRepository.findAll().stream().toList();
   }
 
   @Override
-  public UserEntity registration(UserEntity user) {
+  public UserEntity registration(UserEntity user){
     if(userRepository.findByLogin(user.getLogin()) != null){
       throw new UserAlreadyExistException("Пользователь с таким именем уже существует.");
     }

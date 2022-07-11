@@ -6,7 +6,7 @@ import ru.apphub.core.entity.UserEntity;
 import ru.apphub.core.model.User;
 
 public interface UserService {
-  List<UserEntity> findAllUsers();
+  List<User> findAllUsers();
   UserEntity registration(UserEntity user);
 
   User getOne(String login);

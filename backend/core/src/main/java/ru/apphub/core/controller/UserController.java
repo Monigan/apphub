@@ -2,16 +2,11 @@ package ru.apphub.core.controller;
 
 import java.util.List;
 
-import liquibase.pro.packaged.G;
-import liquibase.pro.packaged.S;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.apphub.core.entity.UserEntity;
-import ru.apphub.core.exceptions.UserAlreadyExistException;
-import ru.apphub.core.exceptions.UserNotFoundException;
 import ru.apphub.core.model.User;
-import ru.apphub.core.repository.UserRepository;
 import ru.apphub.core.service.UserService;
 
 @RestController
@@ -44,7 +39,7 @@ public class UserController {
 //  }
 
   @GetMapping
-  public ResponseEntity<List<UserEntity>> listAllUsers() {
+  public ResponseEntity<List<User>> listAllUsers() {
     return ResponseEntity.ok(userService.findAllUsers());
   }
 }
