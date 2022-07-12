@@ -9,6 +9,7 @@ import ru.apphub.core.entity.UserEntity;
 import ru.apphub.core.exceptions.UserAlreadyExistException;
 import ru.apphub.core.model.User;
 import ru.apphub.core.repository.UserRepository;
+import ru.apphub.core.request.UserRegistrationRequest;
 
 @Service
 @Transactional
@@ -28,12 +29,17 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public UserEntity registration(UserEntity user){
+  public UserEntity registration(UserRegistrationRequest user){
     if(userRepository.findByLogin(user.getLogin()) != null){
       throw new UserAlreadyExistException("Пользователь с таким именем уже существует.");
     }
     //TODO по аналогии с емейлами и номерами телефонов вывод ошибок
-    return userRepository.save(user);
+    UserEntity userEntity = new UserEntity();
+    userEntity.setLogin(user.getLogin());
+    userEntity.setPassword(user.getPassword());
+    userEntity.setFirst_name(user.getFirst_name());
+    userEntity.setLast_name(user.getLast_name());
+    return userRepository.save(userEntity);
   }
 
   @Override

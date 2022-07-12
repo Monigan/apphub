@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.apphub.core.entity.UserEntity;
 import ru.apphub.core.model.User;
+import ru.apphub.core.request.UserRegistrationRequest;
 import ru.apphub.core.service.UserService;
 
 @RestController
@@ -23,7 +24,7 @@ public class UserController {
   }
 
   @PostMapping
-  public ResponseEntity<UserEntity> registration(@RequestBody UserEntity user){
+  public ResponseEntity<UserEntity> registration(@RequestBody UserRegistrationRequest user){
       return ResponseEntity.ok(userService.registration(user));
   }
 

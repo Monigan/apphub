@@ -1,11 +1,16 @@
 package ru.apphub.core.model;
 import java.util.Objects;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.apphub.core.entity.UserEntity;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
 
@@ -36,8 +41,7 @@ public class User {
 //  private Collection<Application> applications;
 
 
-  public User() {
-  }
+
 
   public static User toModel(UserEntity entity){
     User model = new User();
