@@ -18,9 +18,15 @@ public class ApplicationEntity {
     private String name;
 
     private String path_file;
-
-    private String description;
+    private String icon_path_file;
+    private String fullDescription;
+    private String shortDescription;
     private Boolean isPublished;
+    private String descrSize;
+    private String descrMPAA;
+    private String descrAuthor;
+
+
     @OneToMany
     @JoinColumn(name = "ids_screenshots")
     private Collection<ScreenshotEntity> screenshots;
@@ -28,6 +34,10 @@ public class ApplicationEntity {
     @OneToMany
     @JoinColumn(name = "ids_reviews")
     private Collection<ReviewsEntity> reviews;
+
+    @ManyToMany
+    @JoinColumn(name = "ids_categorie")
+    private Collection<CategorieEntity> categorie;
 
     private Double rating;
 }

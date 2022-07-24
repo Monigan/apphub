@@ -18,4 +18,6 @@ public class ReviewsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String review;
+    private Double rating;
+    private Long idUser;
 }

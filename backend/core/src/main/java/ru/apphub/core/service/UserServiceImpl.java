@@ -5,6 +5,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import ru.apphub.core.entity.UserEntity;
 import ru.apphub.core.exceptions.UserAlreadyExistException;
 import ru.apphub.core.model.User;
@@ -41,9 +42,16 @@ public class UserServiceImpl implements UserService {
     userEntity.setLast_name(user.getLast_name());
     return userRepository.save(userEntity);
   }
-
   @Override
-  public User getOne(String login){
+  public User getOne(Long id){
+    UserEntity user = userRepository.getOne(id);
+    if (user == null){
+      throw new EntityNotFoundException("Пользователь с таким Id не найден.");
+    }
+    return User.toModel(user);
+  }
+  @Override
+  public User findByLogin(String login){
     UserEntity user = userRepository.findByLogin(login);
     if (user == null){
         throw new EntityNotFoundException("Пользователь с таким Login не найден.");

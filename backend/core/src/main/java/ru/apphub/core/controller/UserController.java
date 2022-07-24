@@ -31,7 +31,11 @@ public class UserController {
   //TODO Не комплится приложение, исправить
   @GetMapping(path = {"/{login}"})
   public ResponseEntity<User> getOneUser(@PathVariable String login){
-      return ResponseEntity.ok(userService.getOne(login));
+      return ResponseEntity.ok(userService.findByLogin(login));
+  }
+  @GetMapping(path = {"/search/{id}"})
+  public ResponseEntity<User> getOneUser(@PathVariable Long id){
+    return ResponseEntity.ok(userService.getOne(id));
   }
 
 //  @DeleteMapping
